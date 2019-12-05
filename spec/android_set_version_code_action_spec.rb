@@ -8,9 +8,9 @@ describe Fastlane::Actions::AndroidSetVersionCodeAction do
 
     it "should increment Version Code and return its new value" do
       result = Fastlane::FastFile.new.parse(
-          'lane :test do
-            android_set_version_code
-           end'
+        'lane :test do
+          android_set_version_code
+         end'
       ).runner.execute(:test)
 
       expect(result).to eq(18)
@@ -19,9 +19,9 @@ describe Fastlane::Actions::AndroidSetVersionCodeAction do
 
     it "should set specific Version Code and return its new value" do
       result = Fastlane::FastFile.new.parse(
-          'lane :test do
-            android_set_version_code(version_code: 19)
-           end'
+        'lane :test do
+          android_set_version_code(version_code: 19)
+         end'
       ).runner.execute(:test)
 
       expect(result).to eq(19)

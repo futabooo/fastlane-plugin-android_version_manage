@@ -33,7 +33,7 @@ module Fastlane
 
       def self.output
         [
-            ['ANDROID_NEW_VERSION_CODE', 'The new Version Code of Android project']
+          ['ANDROID_NEW_VERSION_CODE', 'The new Version Code of Android project']
         ]
       end
 
@@ -43,28 +43,28 @@ module Fastlane
 
       def self.details
         [
-            "This action will set the new Version Code on your Android project.",
-            "Without specifying new Version Code, current one will be incremented"
+          "This action will set the new Version Code on your Android project.",
+          "Without specifying new Version Code, current one will be incremented"
         ].join(' ')
       end
 
       def self.available_options
         [
-            FastlaneCore::ConfigItem.new(key: :gradle_file,
-                                         env_name: "FL_ANDROID_VERSION_MANAGE_GRADLE_FILE",
-                                         description: "(optional) Specify the path to your app build.gradle if it isn't in the default location",
-                                         optional: true,
-                                         type: String,
-                                         default_value: "app/build.gradle.kts",
-                                         verify_block: proc do |value|
-                                           UI.user_error!("Could not find #{value} file") unless File.exist?(value) || Helper.test?
-                                         end),
-            FastlaneCore::ConfigItem.new(key: :version_code,
-                                         env_name: "FL_ANDROID_VERSION_MANAGE_VERSION_CODE",
-                                         description: "(optional) Set specific Version Code",
-                                         optional: true,
-                                         type: Integer,
-                                         default_value: nil)
+          FastlaneCore::ConfigItem.new(key: :gradle_file,
+                                       env_name: "FL_ANDROID_VERSION_MANAGE_GRADLE_FILE",
+                                       description: "(optional) Specify the path to your app build.gradle if it isn't in the default location",
+                                       optional: true,
+                                       type: String,
+                                       default_value: "app/build.gradle.kts",
+                                       verify_block: proc do |value|
+                                         UI.user_error!("Could not find #{value} file") unless File.exist?(value) || Helper.test?
+                                       end),
+          FastlaneCore::ConfigItem.new(key: :version_code,
+                                       env_name: "FL_ANDROID_VERSION_MANAGE_VERSION_CODE",
+                                       description: "(optional) Set specific Version Code",
+                                       optional: true,
+                                       type: Integer,
+                                       default_value: nil)
         ]
       end
 

@@ -8,9 +8,10 @@ describe Fastlane::Actions::AndroidSetVersionNameAction do
 
     it "should set Version Name to specific value" do
       result = Fastlane::FastFile.new.parse(
-          'lane :test do
-            android_set_version_name(version_name: "2.34.5")
-          end').runner.execute(:test)
+        'lane :test do
+          android_set_version_name(version_name: "2.34.5")
+        end'
+      ).runner.execute(:test)
 
       expect(result).to eq("2.34.5")
       expect(Fastlane::Actions.lane_context[Fastlane::Actions::SharedValues::ANDROID_NEW_VERSION_NAME]).to eq("2.34.5")

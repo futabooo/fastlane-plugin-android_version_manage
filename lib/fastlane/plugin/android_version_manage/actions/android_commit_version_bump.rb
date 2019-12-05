@@ -6,7 +6,9 @@ module Fastlane
         require 'set'
         require 'shellwords'
 
-        gradle_file_path = File.expand_path(params[:gradle_file]).shellescape
+        absolute_path = File.dirname(gradle_file_path)
+        repo_path = Actions.sh("git -C #{absolute_path} rev-parse --show-toplevel").strip
+        repo_pathname = Pathname.new(repo_path)
 
         # create our list of files that we expect to have changed, they should all be relative to the project root, which should be equal to the git workdir root
         expected_changed_files = []

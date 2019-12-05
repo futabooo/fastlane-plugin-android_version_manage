@@ -8,4 +8,8 @@ lane :test do
     version_name: "1.23.4",
     gradle_file: "app/build.gradle.kts", # optional
   )
+
+  android_commit_version_bump(
+    message: "chor: bump up versionCode, versionName" # optional
+  )
 end

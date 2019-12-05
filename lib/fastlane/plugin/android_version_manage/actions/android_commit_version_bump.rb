@@ -13,7 +13,7 @@ module Fastlane
 
         # create our list of files that we expect to have changed, they should all be relative to the project root, which should be equal to the git workdir root
         expected_changed_files = []
-        expected_changed_files << absolute_path
+        expected_changed_files << gradle_file_path
 
         # get the list of files that have actually changed in our git workdir
         git_dirty_files = Actions.sh("git -C #{repo_path} diff --name-only HEAD").split("\n") + Actions.sh("git -C #{repo_path} ls-files --other --exclude-standard").split("\n")

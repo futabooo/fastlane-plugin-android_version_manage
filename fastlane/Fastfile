@@ -1,3 +1,6 @@
 lane :test do
-  android_version_manage
+  android_set_version_code(
+    version_code: 17, # optional, if not specified, Version Code will be incremented
+    gradle_file: "app/build.gradle.kts" # optional
+  )
 end

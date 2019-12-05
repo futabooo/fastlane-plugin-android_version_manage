@@ -51,7 +51,7 @@ module Fastlane
         Actions.sh(command_add)
 
         begin
-          command_commit = build_git_command(params, repo_path)
+          command_commit = build_git_command_commit(params, repo_path)
           Actions.sh(command_commit)
           UI.success("Committed \"#{params[:message]}\" 💾.")
         rescue => ex
